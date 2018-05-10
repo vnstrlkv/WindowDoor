@@ -18,7 +18,9 @@ namespace WindowDoor
         public Form1()
         {
             InitializeComponent();
-         
+            PriceList priceList = new PriceList();
+            priceList.GetPrices();
+            dataGridView1.DataSource = priceList.materials;
         }
 
         private void widthBox_TextChanged(object sender, EventArgs e)
@@ -36,13 +38,30 @@ namespace WindowDoor
             window.Height = Convert.ToDouble(heightBox.Text);
             window.Width = Convert.ToDouble(widthBox.Text);
             window.Name = nameBox1.Text;
-            window.Square();
-            window.Perimeter();
+            window.Deaf = checkDeaf.Checked;
+            window.Pipe = checkPipe1.Checked;
+            window.Material = MaterialBox1.SelectedItem.ToString();
+            string tmp = window.Material;
             Form f = new Form2(window);
             f.Show();
         }
 
         private void nameBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void checkDeaf_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MaterialBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
