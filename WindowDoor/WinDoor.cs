@@ -14,6 +14,7 @@ namespace WinDoors
         public string Material { get; set; }
         public bool Deaf { get; set; }
         public bool Pipe { get; set; }
+        public bool Cutting { get; set; }
         public double Perimeter ()
         {
             return (Height + Width) * 2;

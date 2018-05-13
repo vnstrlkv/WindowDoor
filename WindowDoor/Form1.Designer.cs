@@ -42,6 +42,7 @@
             this.MaterialBox1 = new System.Windows.Forms.ComboBox();
             this.priceListBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.priceListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cuttingbox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceListBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceListBindingSource)).BeginInit();
@@ -171,11 +172,23 @@
             // 
             this.priceListBindingSource.DataSource = typeof(Prices.PriceList);
             // 
+            // cuttingbox
+            // 
+            this.cuttingbox.AutoSize = true;
+            this.cuttingbox.Location = new System.Drawing.Point(12, 243);
+            this.cuttingbox.Name = "cuttingbox";
+            this.cuttingbox.Size = new System.Drawing.Size(110, 17);
+            this.cuttingbox.TabIndex = 11;
+            this.cuttingbox.Text = "Поперечный рез";
+            this.cuttingbox.UseVisualStyleBackColor = true;
+            this.cuttingbox.CheckedChanged += new System.EventHandler(this.cuttingbox_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.cuttingbox);
             this.Controls.Add(this.MaterialBox1);
             this.Controls.Add(this.checkPipe1);
             this.Controls.Add(this.checkDeaf);
@@ -213,6 +226,7 @@
         private System.Windows.Forms.ComboBox MaterialBox1;
         private System.Windows.Forms.BindingSource priceListBindingSource;
         private System.Windows.Forms.BindingSource priceListBindingSource1;
+        private System.Windows.Forms.CheckBox cuttingbox;
     }
 }
 
