@@ -11,10 +11,15 @@ using WinDoors;
 using Prices;
 using System.Globalization;
 using Personal;
+using SQLite;
 namespace WindowDoor
 {
     public partial class Form1 : Form
     {
+
+        Person person = new Person();
+        // public WinDoor window = new WinDoor();
+
         public static double GetDouble(string value, double defaultValue)
         {
             double result;
@@ -32,11 +37,10 @@ namespace WindowDoor
             return result;
         }
 
-        Person person = new Person();
-       // public WinDoor window = new WinDoor();
         public Form1()
         {
             InitializeComponent();
+
             PriceList priceList = new PriceList();
             priceList.GetPrices();
         }
@@ -144,6 +148,21 @@ namespace WindowDoor
             checkPipe1.Checked = false;
         //    fullOpenWindow.Checked = true;
 
+        }
+
+        private void saveClient_Click(object sender, EventArgs e)
+        {
+            SQLiteConnection db = new SQLiteConnection("filename.db", true);
+            db.CreateTable(typeof(Person));
+            person.getSumm();
+            db.Insert(person);
+        }
+
+        private void BDbutton_Click(object sender, EventArgs e)
+        {
+
+            Form f = new Form3();
+            f.Show();
         }
     }
 }

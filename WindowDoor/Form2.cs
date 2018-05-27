@@ -41,6 +41,7 @@ namespace WindowDoor
             windowCalculating.Columns.Add("Стоимость СК", typeof(double));//4
 
             windowCalculating = Calculate(windowCalculating, window);
+            person.Windows[person.Windows.Count - 1].Summ = Convert.ToDouble(windowCalculating.Rows[windowCalculating.Rows.Count - 1][4].ToString());
 
             try
             {
@@ -267,7 +268,7 @@ namespace WindowDoor
                 summ +=Convert.ToDouble(dr[4]);
             }
             windowCalculating.Rows[windowCalculating.Rows.Count - 1][4] = Math.Ceiling(summ);
-
+            
             return windowCalculating;
         }
 

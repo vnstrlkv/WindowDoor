@@ -24,6 +24,7 @@ namespace WinDoors
         public bool FullOpenWindow { get; set; }
 
         public bool Cutting { get; set; }
+        public double Summ { get; set; }
 
         public double Perimeter ()
         {

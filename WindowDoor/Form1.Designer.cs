@@ -54,9 +54,10 @@
             this.metering = new System.Windows.Forms.TextBox();
             this.phoneNumber = new System.Windows.Forms.TextBox();
             this.phoneNumber1 = new System.Windows.Forms.TextBox();
+            this.saveClient = new System.Windows.Forms.Button();
             this.priceListBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.priceListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button2 = new System.Windows.Forms.Button();
+            this.BDbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.priceListBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceListBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -315,6 +316,16 @@
             this.phoneNumber1.TabIndex = 6;
             this.phoneNumber1.Text = "Телефон";
             // 
+            // saveClient
+            // 
+            this.saveClient.Location = new System.Drawing.Point(11, 411);
+            this.saveClient.Name = "saveClient";
+            this.saveClient.Size = new System.Drawing.Size(124, 100);
+            this.saveClient.TabIndex = 16;
+            this.saveClient.Text = "Сохранить клиента";
+            this.saveClient.UseVisualStyleBackColor = true;
+            this.saveClient.Click += new System.EventHandler(this.saveClient_Click);
+            // 
             // priceListBindingSource1
             // 
             this.priceListBindingSource1.DataSource = typeof(Prices.PriceList);
@@ -323,21 +334,23 @@
             // 
             this.priceListBindingSource.DataSource = typeof(Prices.PriceList);
             // 
-            // button2
+            // BDbutton
             // 
-            this.button2.Location = new System.Drawing.Point(11, 411);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(124, 100);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BDbutton.Location = new System.Drawing.Point(257, 489);
+            this.BDbutton.Name = "BDbutton";
+            this.BDbutton.Size = new System.Drawing.Size(96, 33);
+            this.BDbutton.TabIndex = 17;
+            this.BDbutton.Text = "База клиентов";
+            this.BDbutton.UseVisualStyleBackColor = true;
+            this.BDbutton.Click += new System.EventHandler(this.BDbutton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(611, 523);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.BDbutton);
+            this.Controls.Add(this.saveClient);
             this.Controls.Add(this.metering);
             this.Controls.Add(this.installWindow);
             this.Controls.Add(this.delivery);
@@ -402,7 +415,8 @@
         private System.Windows.Forms.TextBox metering;
         private System.Windows.Forms.TextBox phoneNumber;
         private System.Windows.Forms.TextBox phoneNumber1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button saveClient;
+        private System.Windows.Forms.Button BDbutton;
     }
 }
 
