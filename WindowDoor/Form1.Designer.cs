@@ -40,9 +40,10 @@
             this.checkDeaf = new System.Windows.Forms.CheckBox();
             this.checkPipe1 = new System.Windows.Forms.CheckBox();
             this.MaterialBox1 = new System.Windows.Forms.ComboBox();
+            this.cuttingbox = new System.Windows.Forms.CheckBox();
             this.priceListBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.priceListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cuttingbox = new System.Windows.Forms.CheckBox();
+            this.paintPipe = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceListBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceListBindingSource)).BeginInit();
@@ -164,14 +165,6 @@
             this.MaterialBox1.TabIndex = 10;
             this.MaterialBox1.SelectedIndexChanged += new System.EventHandler(this.MaterialBox1_SelectedIndexChanged);
             // 
-            // priceListBindingSource1
-            // 
-            this.priceListBindingSource1.DataSource = typeof(Prices.PriceList);
-            // 
-            // priceListBindingSource
-            // 
-            this.priceListBindingSource.DataSource = typeof(Prices.PriceList);
-            // 
             // cuttingbox
             // 
             this.cuttingbox.AutoSize = true;
@@ -183,11 +176,31 @@
             this.cuttingbox.UseVisualStyleBackColor = true;
             this.cuttingbox.CheckedChanged += new System.EventHandler(this.cuttingbox_CheckedChanged);
             // 
+            // priceListBindingSource1
+            // 
+            this.priceListBindingSource1.DataSource = typeof(Prices.PriceList);
+            // 
+            // priceListBindingSource
+            // 
+            this.priceListBindingSource.DataSource = typeof(Prices.PriceList);
+            // 
+            // paintPipe
+            // 
+            this.paintPipe.AutoSize = true;
+            this.paintPipe.Location = new System.Drawing.Point(12, 267);
+            this.paintPipe.Name = "paintPipe";
+            this.paintPipe.Size = new System.Drawing.Size(87, 17);
+            this.paintPipe.TabIndex = 12;
+            this.paintPipe.Text = "Грунт трубы";
+            this.paintPipe.UseVisualStyleBackColor = true;
+            this.paintPipe.CheckedChanged += new System.EventHandler(this.paintPipe_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.paintPipe);
             this.Controls.Add(this.cuttingbox);
             this.Controls.Add(this.MaterialBox1);
             this.Controls.Add(this.checkPipe1);
@@ -227,6 +240,7 @@
         private System.Windows.Forms.BindingSource priceListBindingSource;
         private System.Windows.Forms.BindingSource priceListBindingSource1;
         private System.Windows.Forms.CheckBox cuttingbox;
+        private System.Windows.Forms.CheckBox paintPipe;
     }
 }
 

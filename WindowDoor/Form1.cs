@@ -58,6 +58,7 @@ namespace WindowDoor
             window.Name = nameBox1.Text;
             window.Deaf = checkDeaf.Checked;
             window.Pipe = checkPipe1.Checked;
+            window.PaintPipe = paintPipe.Checked;
             if (MaterialBox1.SelectedItem != null)
             {
                 window.Material = MaterialBox1.SelectedItem.ToString();
@@ -68,7 +69,7 @@ namespace WindowDoor
                 f.Show();
             }
             else
-            MessageBox.Show("Ошибка", "Выберите материал", MessageBoxButtons.OK);
+            MessageBox.Show("Выберите материал", "Ошибка", MessageBoxButtons.OK);
         }
         
         private void nameBox1_TextChanged(object sender, EventArgs e)
@@ -92,6 +93,11 @@ namespace WindowDoor
         }
 
         private void cuttingbox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void paintPipe_CheckedChanged(object sender, EventArgs e)
         {
 
         }
