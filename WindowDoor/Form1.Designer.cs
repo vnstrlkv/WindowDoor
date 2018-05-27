@@ -36,25 +36,37 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.checkDeaf = new System.Windows.Forms.CheckBox();
             this.checkPipe1 = new System.Windows.Forms.CheckBox();
             this.MaterialBox1 = new System.Windows.Forms.ComboBox();
             this.cuttingbox = new System.Windows.Forms.CheckBox();
+            this.paintPipe = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.nameBox2 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.openWindow = new System.Windows.Forms.CheckBox();
+            this.fullOpenWindow = new System.Windows.Forms.CheckBox();
+            this.delivery = new System.Windows.Forms.TextBox();
+            this.installWindow = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.metering = new System.Windows.Forms.TextBox();
+            this.phoneNumber = new System.Windows.Forms.TextBox();
+            this.phoneNumber1 = new System.Windows.Forms.TextBox();
             this.priceListBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.priceListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.paintPipe = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.priceListBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(297, 310);
+            this.button1.Location = new System.Drawing.Point(456, 411);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(56, 19);
+            this.button1.Size = new System.Drawing.Size(144, 101);
             this.button1.TabIndex = 0;
             this.button1.Text = "Рассчёт";
             this.button1.UseVisualStyleBackColor = true;
@@ -62,7 +74,7 @@
             // 
             // widthBox
             // 
-            this.widthBox.Location = new System.Drawing.Point(391, 88);
+            this.widthBox.Location = new System.Drawing.Point(420, 26);
             this.widthBox.Margin = new System.Windows.Forms.Padding(2);
             this.widthBox.Name = "widthBox";
             this.widthBox.Size = new System.Drawing.Size(76, 20);
@@ -80,16 +92,16 @@
             // 
             // nameBox1
             // 
-            this.nameBox1.Location = new System.Drawing.Point(244, 26);
+            this.nameBox1.Location = new System.Drawing.Point(91, 11);
             this.nameBox1.Margin = new System.Windows.Forms.Padding(2);
             this.nameBox1.Name = "nameBox1";
-            this.nameBox1.Size = new System.Drawing.Size(109, 20);
+            this.nameBox1.Size = new System.Drawing.Size(236, 20);
             this.nameBox1.TabIndex = 3;
             this.nameBox1.TextChanged += new System.EventHandler(this.nameBox1_TextChanged);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(391, 64);
+            this.textBox2.Location = new System.Drawing.Point(420, 2);
             this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
@@ -109,22 +121,13 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(257, 2);
+            this.textBox4.Location = new System.Drawing.Point(11, 11);
             this.textBox4.Margin = new System.Windows.Forms.Padding(2);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(76, 20);
             this.textBox4.TabIndex = 6;
-            this.textBox4.Text = "Название";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(358, 204);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 7;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.textBox4.Text = "Фамилия";
             // 
             // checkDeaf
             // 
@@ -140,12 +143,13 @@
             // checkPipe1
             // 
             this.checkPipe1.AutoSize = true;
-            this.checkPipe1.Location = new System.Drawing.Point(13, 219);
+            this.checkPipe1.Location = new System.Drawing.Point(79, 220);
             this.checkPipe1.Name = "checkPipe1";
             this.checkPipe1.Size = new System.Drawing.Size(56, 17);
             this.checkPipe1.TabIndex = 9;
             this.checkPipe1.Text = "Труба";
             this.checkPipe1.UseVisualStyleBackColor = true;
+            this.checkPipe1.CheckedChanged += new System.EventHandler(this.checkPipe1_CheckedChanged);
             // 
             // MaterialBox1
             // 
@@ -168,13 +172,148 @@
             // cuttingbox
             // 
             this.cuttingbox.AutoSize = true;
-            this.cuttingbox.Location = new System.Drawing.Point(12, 243);
+            this.cuttingbox.Location = new System.Drawing.Point(11, 337);
             this.cuttingbox.Name = "cuttingbox";
             this.cuttingbox.Size = new System.Drawing.Size(110, 17);
             this.cuttingbox.TabIndex = 11;
             this.cuttingbox.Text = "Поперечный рез";
             this.cuttingbox.UseVisualStyleBackColor = true;
             this.cuttingbox.CheckedChanged += new System.EventHandler(this.cuttingbox_CheckedChanged);
+            // 
+            // paintPipe
+            // 
+            this.paintPipe.AutoSize = true;
+            this.paintPipe.Location = new System.Drawing.Point(79, 243);
+            this.paintPipe.Name = "paintPipe";
+            this.paintPipe.Size = new System.Drawing.Size(87, 17);
+            this.paintPipe.TabIndex = 12;
+            this.paintPipe.Text = "Грунт трубы";
+            this.paintPipe.UseVisualStyleBackColor = true;
+            this.paintPipe.CheckedChanged += new System.EventHandler(this.paintPipe_CheckedChanged);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(11, 35);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(76, 20);
+            this.textBox1.TabIndex = 6;
+            this.textBox1.Text = "Имя";
+            // 
+            // nameBox2
+            // 
+            this.nameBox2.Location = new System.Drawing.Point(91, 35);
+            this.nameBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.nameBox2.Name = "nameBox2";
+            this.nameBox2.Size = new System.Drawing.Size(236, 20);
+            this.nameBox2.TabIndex = 3;
+            this.nameBox2.TextChanged += new System.EventHandler(this.nameBox1_TextChanged);
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(284, 110);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
+            this.textBox8.Size = new System.Drawing.Size(69, 20);
+            this.textBox8.TabIndex = 4;
+            this.textBox8.Text = "Материал";
+            // 
+            // openWindow
+            // 
+            this.openWindow.AutoSize = true;
+            this.openWindow.Location = new System.Drawing.Point(79, 195);
+            this.openWindow.Name = "openWindow";
+            this.openWindow.Size = new System.Drawing.Size(112, 17);
+            this.openWindow.TabIndex = 13;
+            this.openWindow.Text = "Открывающееся";
+            this.openWindow.UseVisualStyleBackColor = true;
+            this.openWindow.CheckedChanged += new System.EventHandler(this.openWindow_CheckedChanged);
+            // 
+            // fullOpenWindow
+            // 
+            this.fullOpenWindow.AutoSize = true;
+            this.fullOpenWindow.Location = new System.Drawing.Point(198, 195);
+            this.fullOpenWindow.Name = "fullOpenWindow";
+            this.fullOpenWindow.Size = new System.Drawing.Size(170, 17);
+            this.fullOpenWindow.TabIndex = 14;
+            this.fullOpenWindow.Text = "Полностью открывающееся";
+            this.fullOpenWindow.UseVisualStyleBackColor = true;
+            this.fullOpenWindow.CheckedChanged += new System.EventHandler(this.fullOpenWindow_CheckedChanged);
+            // 
+            // delivery
+            // 
+            this.delivery.Location = new System.Drawing.Point(456, 243);
+            this.delivery.Name = "delivery";
+            this.delivery.Size = new System.Drawing.Size(100, 20);
+            this.delivery.TabIndex = 15;
+            this.delivery.Text = "0";
+            // 
+            // installWindow
+            // 
+            this.installWindow.Location = new System.Drawing.Point(456, 269);
+            this.installWindow.Name = "installWindow";
+            this.installWindow.Size = new System.Drawing.Size(100, 20);
+            this.installWindow.TabIndex = 15;
+            this.installWindow.Text = "0";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(375, 243);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.ReadOnly = true;
+            this.textBox9.Size = new System.Drawing.Size(76, 20);
+            this.textBox9.TabIndex = 4;
+            this.textBox9.Text = "Доставка";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(375, 267);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
+            this.textBox10.Size = new System.Drawing.Size(76, 20);
+            this.textBox10.TabIndex = 4;
+            this.textBox10.Text = "Монтаж";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(375, 316);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
+            this.textBox6.Size = new System.Drawing.Size(76, 20);
+            this.textBox6.TabIndex = 4;
+            this.textBox6.Text = "Замер";
+            // 
+            // metering
+            // 
+            this.metering.Location = new System.Drawing.Point(456, 318);
+            this.metering.Name = "metering";
+            this.metering.Size = new System.Drawing.Size(100, 20);
+            this.metering.TabIndex = 15;
+            this.metering.Text = "0";
+            // 
+            // phoneNumber
+            // 
+            this.phoneNumber.Location = new System.Drawing.Point(91, 59);
+            this.phoneNumber.Margin = new System.Windows.Forms.Padding(2);
+            this.phoneNumber.Name = "phoneNumber";
+            this.phoneNumber.Size = new System.Drawing.Size(236, 20);
+            this.phoneNumber.TabIndex = 3;
+            this.phoneNumber.TextChanged += new System.EventHandler(this.nameBox1_TextChanged);
+            // 
+            // phoneNumber1
+            // 
+            this.phoneNumber1.Location = new System.Drawing.Point(11, 59);
+            this.phoneNumber1.Margin = new System.Windows.Forms.Padding(2);
+            this.phoneNumber1.Name = "phoneNumber1";
+            this.phoneNumber1.ReadOnly = true;
+            this.phoneNumber1.Size = new System.Drawing.Size(76, 20);
+            this.phoneNumber1.TabIndex = 6;
+            this.phoneNumber1.Text = "Телефон";
             // 
             // priceListBindingSource1
             // 
@@ -184,31 +323,42 @@
             // 
             this.priceListBindingSource.DataSource = typeof(Prices.PriceList);
             // 
-            // paintPipe
+            // button2
             // 
-            this.paintPipe.AutoSize = true;
-            this.paintPipe.Location = new System.Drawing.Point(12, 267);
-            this.paintPipe.Name = "paintPipe";
-            this.paintPipe.Size = new System.Drawing.Size(87, 17);
-            this.paintPipe.TabIndex = 12;
-            this.paintPipe.Text = "Грунт трубы";
-            this.paintPipe.UseVisualStyleBackColor = true;
-            this.paintPipe.CheckedChanged += new System.EventHandler(this.paintPipe_CheckedChanged);
+            this.button2.Location = new System.Drawing.Point(11, 411);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(124, 100);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(611, 523);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.metering);
+            this.Controls.Add(this.installWindow);
+            this.Controls.Add(this.delivery);
+            this.Controls.Add(this.fullOpenWindow);
+            this.Controls.Add(this.openWindow);
             this.Controls.Add(this.paintPipe);
             this.Controls.Add(this.cuttingbox);
             this.Controls.Add(this.MaterialBox1);
             this.Controls.Add(this.checkPipe1);
             this.Controls.Add(this.checkDeaf);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.phoneNumber1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.phoneNumber);
             this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.nameBox2);
             this.Controls.Add(this.nameBox1);
             this.Controls.Add(this.heightBox);
             this.Controls.Add(this.widthBox);
@@ -216,7 +366,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceListBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceListBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -233,7 +382,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.CheckBox checkDeaf;
         private System.Windows.Forms.CheckBox checkPipe1;
         private System.Windows.Forms.ComboBox MaterialBox1;
@@ -241,6 +389,20 @@
         private System.Windows.Forms.BindingSource priceListBindingSource1;
         private System.Windows.Forms.CheckBox cuttingbox;
         private System.Windows.Forms.CheckBox paintPipe;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox nameBox2;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.CheckBox openWindow;
+        private System.Windows.Forms.CheckBox fullOpenWindow;
+        private System.Windows.Forms.TextBox delivery;
+        private System.Windows.Forms.TextBox installWindow;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox metering;
+        private System.Windows.Forms.TextBox phoneNumber;
+        private System.Windows.Forms.TextBox phoneNumber1;
+        private System.Windows.Forms.Button button2;
     }
 }
 
