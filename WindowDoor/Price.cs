@@ -20,7 +20,7 @@ namespace Prices
         public DataTable materials;
         public void GetPrices()
         {
-            FileInfo newFile = new FileInfo(@"D:\test.xlsx");
+            FileInfo newFile = new FileInfo("price.xlsx");
             ExcelPackage package = new ExcelPackage(newFile);
             ExcelWorksheet osheet = package.Workbook.Worksheets[1];
             materials = WorksheetToDataTable(osheet);

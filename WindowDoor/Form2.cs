@@ -174,6 +174,21 @@ namespace WindowDoor
                     windowCalculating.Rows.Add();
                 }
 
+                if (window.Flash)
+                {
+                    double flashSize = Math.Ceiling(window.Height);
+                    tmpmat = GetMaterialFromPricelist("Молния трактор", priceList);
+                    if (tmpmat != null)
+                        for (int i = 0; i < 3; i++)
+                            windowCalculating.Rows[windowCalculating.Rows.Count - 1][i] = tmpmat[0][i];
+
+                    windowCalculating.Rows[windowCalculating.Rows.Count - 1][3] = Math.Ceiling(flashSize);
+
+                    windowCalculating.Rows[windowCalculating.Rows.Count - 1][4] = Convert.ToDouble(windowCalculating.Rows[windowCalculating.Rows.Count - 1][3].ToString()) * Convert.ToDouble(windowCalculating.Rows[windowCalculating.Rows.Count - 1][2].ToString());
+
+                    windowCalculating.Rows.Add();
+                }
+
                 //    Работа;
                 //установка люверсов
                 tmpmat = GetMaterialFromPricelist("Установка люверса 6мм", priceList);
@@ -205,9 +220,21 @@ namespace WindowDoor
                     windowCalculating.Rows[windowCalculating.Rows.Count - 1][3] = windowCalculating.Select("Наименование = 'Труба профильная железо 15 х 15 х 1,5; Длина 6 м'")[0][3];
                     windowCalculating.Rows[windowCalculating.Rows.Count - 1][2] = Convert.ToDouble(windowCalculating.Rows[windowCalculating.Rows.Count - 1][2].ToString()) * BK;
                     windowCalculating.Rows[windowCalculating.Rows.Count - 1][4] = Convert.ToDouble(windowCalculating.Rows[windowCalculating.Rows.Count - 1][3].ToString()) * Convert.ToDouble(windowCalculating.Rows[windowCalculating.Rows.Count - 1][2].ToString());
+                    windowCalculating.Rows.Add();
+                }
+                if (window.Flash)
+                {
+                    tmpmat = GetMaterialFromPricelist("Пошив молнии", priceList);
+                    if (tmpmat != null)
+                        for (int i = 0; i < 3; i++)
+                            windowCalculating.Rows[windowCalculating.Rows.Count - 1][i] = tmpmat[0][i];
+                    windowCalculating.Rows[windowCalculating.Rows.Count - 1][3] = windowCalculating.Select("Наименование = 'Молния трактор'")[0][3];
+                    windowCalculating.Rows[windowCalculating.Rows.Count - 1][2] = Convert.ToDouble(windowCalculating.Rows[windowCalculating.Rows.Count - 1][2].ToString()) * BK;
+                    windowCalculating.Rows[windowCalculating.Rows.Count - 1][4] = Convert.ToDouble(windowCalculating.Rows[windowCalculating.Rows.Count - 1][3].ToString()) * Convert.ToDouble(windowCalculating.Rows[windowCalculating.Rows.Count - 1][2].ToString());
+                    windowCalculating.Rows.Add();
                 }
 
-               
+
 
             }
 

@@ -76,6 +76,7 @@ namespace WindowDoor
             windows.Pipe = checkPipe1.Checked;
             windows.PaintPipe = paintPipe.Checked;
             windows.FullOpenWindow = fullOpenWindow.Checked;
+            windows.Flash = flash1.Checked;
 
             if (MaterialBox1.SelectedItem != null)
             {
@@ -152,7 +153,7 @@ namespace WindowDoor
 
         private void saveClient_Click(object sender, EventArgs e)
         {
-            SQLiteConnection db = new SQLiteConnection("filename.db", true);
+            SQLiteConnection db = new SQLiteConnection("BD.db", true);
             db.CreateTable(typeof(Person));
             person.getSumm();
             db.Insert(person);
@@ -163,6 +164,11 @@ namespace WindowDoor
 
             Form f = new Form3();
             f.Show();
+        }
+
+        private void flash1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

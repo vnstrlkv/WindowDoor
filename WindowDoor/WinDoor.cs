@@ -20,6 +20,7 @@ namespace WinDoors
         public bool OpenWindow { get; set; }
         public bool Pipe { get; set; }
         public bool PaintPipe { get; set; }
+        public bool Flash { get; set; }
 
         public bool FullOpenWindow { get; set; }
 

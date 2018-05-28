@@ -19,7 +19,7 @@ namespace WindowDoor
             InitializeComponent();
             DataSet ds = new DataSet(); //Создаем объект класса DataSet
 
-            var db = new SQLiteConnection("filename.db", true);
+            var db = new SQLiteConnection("BD.db", true);
 
             var persons = db.Query<Person>("SELECT * FROM Person");
 
