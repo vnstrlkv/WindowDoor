@@ -2,14 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using OfficeOpenXml;
 using System.IO;
 using System.Data;
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Sheets.v4;
+using Google.Apis.Sheets.v4.Data;
+using Google.Apis.Services;
+using Google.Apis.Util.Store;
+using CollectionHelperNS;
 namespace Prices
 {
     class Material
-    {
+    {        
         public string Name { get; set; }
         public string Metr { get; set; }
         public double Price { get; set; }
@@ -18,7 +25,51 @@ namespace Prices
     class PriceList
     {
         public DataTable materials;
-        public void GetPrices()
+        public void GetPricesGoogle()
+        {
+             string[] Scopes = { SheetsService.Scope.SpreadsheetsReadonly };
+            string ApplicationName = "WindowsDoors";           
+                UserCredential credential;
+
+                using (var stream =
+                    new FileStream("client_id.json", FileMode.Open, FileAccess.Read))
+                {
+                    string credPath = System.Environment.GetFolderPath(
+                        System.Environment.SpecialFolder.Personal);
+                    credPath = Path.Combine(credPath, ".credentials/sheets.googleapis.com-dotnet-quickstart.json");
+
+                    credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
+                        GoogleClientSecrets.Load(stream).Secrets,
+                        Scopes,
+                        "user",
+                        CancellationToken.None,
+                        new FileDataStore(credPath, true)).Result;
+                    Console.WriteLine("Credential file saved to: " + credPath);
+                }
+
+                // Create Google Sheets API service.
+                var service = new SheetsService(new BaseClientService.Initializer()
+                {
+                    HttpClientInitializer = credential,
+                    ApplicationName = ApplicationName,
+                });
+
+                // Define request parameters.
+                String spreadsheetId = "1St3ncTv58_rLWLWtT8LnOQyu1ddAPTW9BoghcuwgDBM";
+                String range = "1!A1:C38";
+                SpreadsheetsResource.ValuesResource.GetRequest request =
+                        service.Spreadsheets.Values.Get(spreadsheetId, range);
+
+                // Prints the names and majors of students in a sample spreadsheet:
+                // https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
+                ValueRange response = request.Execute();
+                var values = response.Values;
+
+            materials = CollectionHelper.ConvertTo<Material>(values);
+
+
+            }
+            public void GetPrices()
         {
             FileInfo newFile = new FileInfo("price.xlsx");
             ExcelPackage package = new ExcelPackage(newFile);
