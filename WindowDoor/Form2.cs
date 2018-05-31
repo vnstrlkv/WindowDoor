@@ -22,15 +22,16 @@ namespace WindowDoor
     {
         public static DataTable windowCalculating;
         public static Person client;
-
+        PriceList priceList = new PriceList();
         public Form2(Person person)
         {
             InitializeComponent();
             client = person;
             textBox1.Text = person.SecondName+" "+person.FirstName;
             WinDoor window = person.Windows[person.Windows.Count-1];
-            PriceList priceList = new PriceList();
-            priceList.GetPrices();
+
+              priceList.GetPricesGoogle();
+          //  priceList.GetPrices();
 
             windowCalculating = new DataTable();
             windowCalculating.Columns.Add("Наименование", typeof(string)); //0
@@ -44,9 +45,7 @@ namespace WindowDoor
             person.Windows[person.Windows.Count - 1].Summ = Convert.ToDouble(windowCalculating.Rows[windowCalculating.Rows.Count - 1][4].ToString());
 
             try
-            {
-
-                
+            {                
                 foreach (DataRow dr in windowCalculating.Rows)
                 {
 
@@ -64,9 +63,6 @@ namespace WindowDoor
         DataTable Calculate(DataTable windowCalculating, WinDoor window)
         {
             double BK = 1.13;
-            PriceList priceList = new PriceList();
-            priceList.GetPrices();
-
             double size = 1.5;
             double sizeMaterial = 1.4;
             windowCalculating.Rows.Add();
@@ -301,8 +297,9 @@ namespace WindowDoor
 
         DataRow[] GetMaterialFromPricelist (string name, PriceList priceList)
         {
-
-            return priceList.materials.Select("Name = '" + name + "'");
+            DataRow [] dt = priceList.materials.Select("Name = '" + name + "'");
+            DataRow[] dr = dt;
+            return dt;
         }
 
 

@@ -12,7 +12,6 @@ using Google.Apis.Sheets.v4;
 using Google.Apis.Sheets.v4.Data;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
-using CollectionHelperNS;
 namespace Prices
 {
     class Material
@@ -24,7 +23,8 @@ namespace Prices
 
     class PriceList
     {
-        public DataTable materials;
+        public DataTable materials { get; set;}
+
         public void GetPricesGoogle()
         {
              string[] Scopes = { SheetsService.Scope.SpreadsheetsReadonly };
@@ -65,10 +65,32 @@ namespace Prices
                 ValueRange response = request.Execute();
                 var values = response.Values;
 
-            materials = CollectionHelper.ConvertTo<Material>(values);
+            DataTable dt = new DataTable();
+            DataRow dr = null;
 
+            if (values != null && values.Count > 0)
+            {
+                // Console.WriteLine("Name, Major");
+                int i=0;
+                foreach (var row in values)
+                {
 
+                    if (i > 0) dr = dt.Rows.Add();
+                    for (int j=0; j<row.Count;j++)
+                        if (i == 0)
+                            dt.Columns.Add(row[j].ToString());
+                        else
+                        if (values[j] != null)
+                            dr[j ] = row[j].ToString();
+                    i++;
+                    
+                }
             }
+
+          
+            materials = dt;
+
+        }
             public void GetPrices()
         {
             FileInfo newFile = new FileInfo("price.xlsx");

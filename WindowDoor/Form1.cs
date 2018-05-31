@@ -170,5 +170,11 @@ namespace WindowDoor
         {
 
         }
+
+        private void PriceButton_Click(object sender, EventArgs e)
+        {
+            Form f = new PriceForm();
+            f.Show();
+        }
     }
 }

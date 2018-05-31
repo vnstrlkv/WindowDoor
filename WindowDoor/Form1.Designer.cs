@@ -59,6 +59,7 @@
             this.priceListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.BDbutton = new System.Windows.Forms.Button();
             this.flash1 = new System.Windows.Forms.CheckBox();
+            this.PriceButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.priceListBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceListBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -135,7 +136,7 @@
             // 
             this.checkDeaf.AutoSize = true;
             this.checkDeaf.Location = new System.Drawing.Point(17, 240);
-            this.checkDeaf.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkDeaf.Margin = new System.Windows.Forms.Padding(4);
             this.checkDeaf.Name = "checkDeaf";
             this.checkDeaf.Size = new System.Drawing.Size(75, 21);
             this.checkDeaf.TabIndex = 8;
@@ -147,7 +148,7 @@
             // 
             this.checkPipe1.AutoSize = true;
             this.checkPipe1.Location = new System.Drawing.Point(105, 271);
-            this.checkPipe1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkPipe1.Margin = new System.Windows.Forms.Padding(4);
             this.checkPipe1.Name = "checkPipe1";
             this.checkPipe1.Size = new System.Drawing.Size(70, 21);
             this.checkPipe1.TabIndex = 9;
@@ -168,7 +169,7 @@
             "Ткань тентовая 650 (если делать без прозрачного - тент)",
             " Ткань тентовая 650+ полоска прозрачная 1,4 (горизонтально)"});
             this.MaterialBox1.Location = new System.Drawing.Point(16, 166);
-            this.MaterialBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaterialBox1.Margin = new System.Windows.Forms.Padding(4);
             this.MaterialBox1.Name = "MaterialBox1";
             this.MaterialBox1.Size = new System.Drawing.Size(780, 24);
             this.MaterialBox1.TabIndex = 10;
@@ -178,7 +179,7 @@
             // 
             this.cuttingbox.AutoSize = true;
             this.cuttingbox.Location = new System.Drawing.Point(15, 415);
-            this.cuttingbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cuttingbox.Margin = new System.Windows.Forms.Padding(4);
             this.cuttingbox.Name = "cuttingbox";
             this.cuttingbox.Size = new System.Drawing.Size(141, 21);
             this.cuttingbox.TabIndex = 11;
@@ -190,7 +191,7 @@
             // 
             this.paintPipe.AutoSize = true;
             this.paintPipe.Location = new System.Drawing.Point(105, 299);
-            this.paintPipe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.paintPipe.Margin = new System.Windows.Forms.Padding(4);
             this.paintPipe.Name = "paintPipe";
             this.paintPipe.Size = new System.Drawing.Size(112, 21);
             this.paintPipe.TabIndex = 12;
@@ -231,7 +232,7 @@
             // 
             this.openWindow.AutoSize = true;
             this.openWindow.Location = new System.Drawing.Point(105, 240);
-            this.openWindow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.openWindow.Margin = new System.Windows.Forms.Padding(4);
             this.openWindow.Name = "openWindow";
             this.openWindow.Size = new System.Drawing.Size(140, 21);
             this.openWindow.TabIndex = 13;
@@ -243,7 +244,7 @@
             // 
             this.fullOpenWindow.AutoSize = true;
             this.fullOpenWindow.Location = new System.Drawing.Point(264, 240);
-            this.fullOpenWindow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fullOpenWindow.Margin = new System.Windows.Forms.Padding(4);
             this.fullOpenWindow.Name = "fullOpenWindow";
             this.fullOpenWindow.Size = new System.Drawing.Size(214, 21);
             this.fullOpenWindow.TabIndex = 14;
@@ -254,7 +255,7 @@
             // delivery
             // 
             this.delivery.Location = new System.Drawing.Point(608, 299);
-            this.delivery.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.delivery.Margin = new System.Windows.Forms.Padding(4);
             this.delivery.Name = "delivery";
             this.delivery.Size = new System.Drawing.Size(132, 22);
             this.delivery.TabIndex = 15;
@@ -263,7 +264,7 @@
             // installWindow
             // 
             this.installWindow.Location = new System.Drawing.Point(608, 331);
-            this.installWindow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.installWindow.Margin = new System.Windows.Forms.Padding(4);
             this.installWindow.Name = "installWindow";
             this.installWindow.Size = new System.Drawing.Size(132, 22);
             this.installWindow.TabIndex = 15;
@@ -302,7 +303,7 @@
             // metering
             // 
             this.metering.Location = new System.Drawing.Point(608, 391);
-            this.metering.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.metering.Margin = new System.Windows.Forms.Padding(4);
             this.metering.Name = "metering";
             this.metering.Size = new System.Drawing.Size(132, 22);
             this.metering.TabIndex = 15;
@@ -330,7 +331,7 @@
             // saveClient
             // 
             this.saveClient.Location = new System.Drawing.Point(15, 506);
-            this.saveClient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.saveClient.Margin = new System.Windows.Forms.Padding(4);
             this.saveClient.Name = "saveClient";
             this.saveClient.Size = new System.Drawing.Size(165, 123);
             this.saveClient.TabIndex = 16;
@@ -349,7 +350,7 @@
             // BDbutton
             // 
             this.BDbutton.Location = new System.Drawing.Point(343, 602);
-            this.BDbutton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BDbutton.Margin = new System.Windows.Forms.Padding(4);
             this.BDbutton.Name = "BDbutton";
             this.BDbutton.Size = new System.Drawing.Size(128, 41);
             this.BDbutton.TabIndex = 17;
@@ -368,11 +369,22 @@
             this.flash1.UseVisualStyleBackColor = true;
             this.flash1.CheckedChanged += new System.EventHandler(this.flash1_CheckedChanged);
             // 
+            // PriceButton
+            // 
+            this.PriceButton.Location = new System.Drawing.Point(667, 449);
+            this.PriceButton.Name = "PriceButton";
+            this.PriceButton.Size = new System.Drawing.Size(75, 23);
+            this.PriceButton.TabIndex = 19;
+            this.PriceButton.Text = "Price";
+            this.PriceButton.UseVisualStyleBackColor = true;
+            this.PriceButton.Click += new System.EventHandler(this.PriceButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(815, 644);
+            this.Controls.Add(this.PriceButton);
             this.Controls.Add(this.flash1);
             this.Controls.Add(this.BDbutton);
             this.Controls.Add(this.saveClient);
@@ -443,6 +455,7 @@
         private System.Windows.Forms.Button saveClient;
         private System.Windows.Forms.Button BDbutton;
         private System.Windows.Forms.CheckBox flash1;
+        private System.Windows.Forms.Button PriceButton;
     }
 }
 
