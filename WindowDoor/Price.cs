@@ -12,6 +12,8 @@ using Google.Apis.Sheets.v4;
 using Google.Apis.Sheets.v4.Data;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
+using System.ComponentModel;
+
 namespace Prices
 {
     class Material
@@ -21,9 +23,29 @@ namespace Prices
         public double Price { get; set; }
     }
 
-    class PriceList
+    class PriceList 
     {
-        public DataTable materials { get; set;}
+        public event PropertyChangedEventHandler PropertyChanged;
+        public DataTable materials { get; set; }
+        public DataTable Materials 
+        {
+            get { return materials; }
+            set
+            {
+                materials = value;
+                OnPropertyChanged("materials");
+            }
+        }
+
+
+        internal void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
 
         public void GetPricesGoogle()
         {
@@ -65,7 +87,7 @@ namespace Prices
                 ValueRange response = request.Execute();
                 var values = response.Values;
 
-            DataTable dt = new DataTable();
+            DataTable dt = new DataTable("Лист1");
             DataRow dr = null;
 
             if (values != null && values.Count > 0)
@@ -91,12 +113,12 @@ namespace Prices
             materials = dt;
 
         }
-            public void GetPrices()
+        public void GetPrices()
         {
             FileInfo newFile = new FileInfo("price.xlsx");
             ExcelPackage package = new ExcelPackage(newFile);
             ExcelWorksheet osheet = package.Workbook.Worksheets[1];
-            materials = WorksheetToDataTable(osheet);
+            Materials = WorksheetToDataTable(osheet);
         }
 
         private DataTable WorksheetToDataTable(ExcelWorksheet oSheet)

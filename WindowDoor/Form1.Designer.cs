@@ -39,6 +39,7 @@
             this.checkDeaf = new System.Windows.Forms.CheckBox();
             this.checkPipe1 = new System.Windows.Forms.CheckBox();
             this.MaterialBox1 = new System.Windows.Forms.ComboBox();
+            this.materialBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cuttingbox = new System.Windows.Forms.CheckBox();
             this.paintPipe = new System.Windows.Forms.CheckBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -55,13 +56,16 @@
             this.phoneNumber = new System.Windows.Forms.TextBox();
             this.phoneNumber1 = new System.Windows.Forms.TextBox();
             this.saveClient = new System.Windows.Forms.Button();
-            this.priceListBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.priceListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.BDbutton = new System.Windows.Forms.Button();
             this.flash1 = new System.Windows.Forms.CheckBox();
             this.PriceButton = new System.Windows.Forms.Button();
+            this.priceListBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.priceListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.priceListBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.materialBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceListBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceListBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.priceListBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -159,21 +163,16 @@
             // MaterialBox1
             // 
             this.MaterialBox1.FormattingEnabled = true;
-            this.MaterialBox1.Items.AddRange(new object[] {
-            "ПВХ  пленка прозрачка 200мкм, ширина 1,4м + Тент цветной 620",
-            "ПВХ  пленка прозрачка 500мкм ширина 1,4м + Тент цветной 650 ",
-            "ПВХ  пленка прозрачка 750мкм ширина 1,4м +Тент цветной 650",
-            "ПВХ  пленка прозрачка 500мкм ширина 1,4м",
-            "Прозрачная пленка ПВХ 700 МКМ",
-            "Сетка баннерная 340 гр белая + печать с одной стороны",
-            "Ткань тентовая 650 (если делать без прозрачного - тент)",
-            " Ткань тентовая 650+ полоска прозрачная 1,4 (горизонтально)"});
             this.MaterialBox1.Location = new System.Drawing.Point(16, 166);
             this.MaterialBox1.Margin = new System.Windows.Forms.Padding(4);
             this.MaterialBox1.Name = "MaterialBox1";
             this.MaterialBox1.Size = new System.Drawing.Size(780, 24);
             this.MaterialBox1.TabIndex = 10;
-            this.MaterialBox1.SelectedIndexChanged += new System.EventHandler(this.MaterialBox1_SelectedIndexChanged);
+            
+            // 
+            // materialBindingSource
+            // 
+            this.materialBindingSource.DataSource = typeof(Prices.Material);
             // 
             // cuttingbox
             // 
@@ -339,14 +338,6 @@
             this.saveClient.UseVisualStyleBackColor = true;
             this.saveClient.Click += new System.EventHandler(this.saveClient_Click);
             // 
-            // priceListBindingSource1
-            // 
-            this.priceListBindingSource1.DataSource = typeof(Prices.PriceList);
-            // 
-            // priceListBindingSource
-            // 
-            this.priceListBindingSource.DataSource = typeof(Prices.PriceList);
-            // 
             // BDbutton
             // 
             this.BDbutton.Location = new System.Drawing.Point(343, 602);
@@ -378,6 +369,18 @@
             this.PriceButton.Text = "Price";
             this.PriceButton.UseVisualStyleBackColor = true;
             this.PriceButton.Click += new System.EventHandler(this.PriceButton_Click);
+            // 
+            // priceListBindingSource1
+            // 
+            this.priceListBindingSource1.DataSource = typeof(Prices.PriceList);
+            // 
+            // priceListBindingSource
+            // 
+            this.priceListBindingSource.DataSource = typeof(Prices.PriceList);
+            // 
+            // priceListBindingSource2
+            // 
+            this.priceListBindingSource2.DataSource = typeof(Prices.PriceList);
             // 
             // Form1
             // 
@@ -416,8 +419,10 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.materialBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceListBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceListBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.priceListBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -456,6 +461,8 @@
         private System.Windows.Forms.Button BDbutton;
         private System.Windows.Forms.CheckBox flash1;
         private System.Windows.Forms.Button PriceButton;
+        private System.Windows.Forms.BindingSource materialBindingSource;
+        private System.Windows.Forms.BindingSource priceListBindingSource2;
     }
 }
 

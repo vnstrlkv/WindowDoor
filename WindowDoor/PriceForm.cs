@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Prices;
+using OfficeOpenXml;
+using System.IO;
+using System.Data;
+using OfficeOpenXml.Style;
 
 namespace WindowDoor
 {
@@ -15,10 +19,9 @@ namespace WindowDoor
     {
         public PriceForm()
         {
-                        InitializeComponent();
-            PriceList p = new PriceList();
-            p.GetPricesGoogle();
-            dataGridView1.DataSource = p.materials;
+            InitializeComponent();
+
         }
+ 
     }
 }

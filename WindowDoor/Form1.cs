@@ -12,13 +12,20 @@ using Prices;
 using System.Globalization;
 using Personal;
 using SQLite;
+using OfficeOpenXml;
+using System.IO;
+using OfficeOpenXml.Style;
+
+//не забыть забиндить данные в окне
 namespace WindowDoor
 {
     public partial class Form1 : Form
     {
 
+        PriceList priceList = new PriceList();
         Person person = new Person();
         // public WinDoor window = new WinDoor();
+        
 
         public static double GetDouble(string value, double defaultValue)
         {
@@ -41,8 +48,13 @@ namespace WindowDoor
         {
             InitializeComponent();
 
-            PriceList priceList = new PriceList();
+           
             priceList.GetPrices();
+
+            MaterialBox1.DataSource = priceList.materials ;
+            MaterialBox1.DisplayMember = "Name";
+            MaterialBox1.BindingContext = BindingContext;
+
         }
 
         private void widthBox_TextChanged(object sender, EventArgs e)
@@ -80,7 +92,9 @@ namespace WindowDoor
 
             if (MaterialBox1.SelectedItem != null)
             {
-                windows.Material = MaterialBox1.SelectedItem.ToString();
+                DataRowView dv = (DataRowView)MaterialBox1.SelectedItem;
+                windows.Material = (string)dv.Row["Name"];
+               
 
                 windows.Cutting = cuttingbox.Checked;
                 person.Windows.Add(windows);
@@ -112,10 +126,7 @@ namespace WindowDoor
             fullOpenWindow.Checked = false;
         }
 
-        private void MaterialBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void cuttingbox_CheckedChanged(object sender, EventArgs e)
         {
@@ -173,8 +184,44 @@ namespace WindowDoor
 
         private void PriceButton_Click(object sender, EventArgs e)
         {
-            Form f = new PriceForm();
-            f.Show();
+            // Form f = new PriceForm();
+            // f.Show();
+            PriceList pG = new PriceList();
+            pG.GetPricesGoogle();
+
+            FileInfo newFile = new FileInfo("price.xlsx");
+            //  newFile.Delete();
+            using (ExcelPackage pck = new ExcelPackage(newFile))
+            {
+
+                ExcelWorksheet ws = pck.Workbook.Worksheets[1];
+                ws.Cells["A1"].LoadFromDataTable(pG.materials, true);
+
+
+                ws.Cells.Style.Font.Size = 12; // Размер шрифта по умолчанию для всего листа
+                ws.Cells.Style.Font.Name = "Times New Roman"; // Default Имя шрифта для всего листа
+
+                using (var cells = ws.Cells[ws.Dimension.Address])
+                {
+                    cells.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                    cells.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    cells.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                    cells.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                    cells.AutoFitColumns();
+                }
+
+                pck.Save();
+
+            }
+            priceList.GetPrices();
+            MaterialBox1.DataSource = null;
+            MaterialBox1.Items.Clear();
+            MaterialBox1.DataSource = priceList.materials;
+            MaterialBox1.DisplayMember = "Name";
+            MaterialBox1.BindingContext = BindingContext;
+            MaterialBox1.Update();
+
         }
     }
+    
 }

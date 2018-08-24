@@ -30,8 +30,7 @@ namespace WindowDoor
             textBox1.Text = person.SecondName+" "+person.FirstName;
             WinDoor window = person.Windows[person.Windows.Count-1];
 
-              priceList.GetPricesGoogle();
-          //  priceList.GetPrices();
+            priceList.GetPrices();
 
             windowCalculating = new DataTable();
             windowCalculating.Columns.Add("Наименование", typeof(string)); //0
@@ -41,7 +40,9 @@ namespace WindowDoor
             windowCalculating.Columns.Add("S", typeof(double));//3
             windowCalculating.Columns.Add("Стоимость СК", typeof(double));//4
 
-            windowCalculating = Calculate(windowCalculating, window);
+            
+    
+             windowCalculating = Calculate(windowCalculating, window);
             person.Windows[person.Windows.Count - 1].Summ = Convert.ToDouble(windowCalculating.Rows[windowCalculating.Rows.Count - 1][4].ToString());
 
             try
@@ -59,7 +60,7 @@ namespace WindowDoor
                 dataGridView1.DataSource = priceList.materials;
             }
         }
-
+        
         DataTable Calculate(DataTable windowCalculating, WinDoor window)
         {
             double BK = 1.13;
@@ -67,7 +68,7 @@ namespace WindowDoor
             double sizeMaterial = 1.4;
             windowCalculating.Rows.Add();
             //Добавляем материал
-            DataRow[] tmpmat = GetMaterialFromPricelist(window.Material, priceList);
+            DataRow[] tmpmat = GetMaterialFromPricelist(window.Material, priceList, "Name");
             if (tmpmat != null)
                 for (int i = 0; i < 3; i++)
                     windowCalculating.Rows[windowCalculating.Rows.Count-1][i] = tmpmat[0][i];
@@ -95,7 +96,7 @@ namespace WindowDoor
             if (window.Deaf)
             {
                 //люверс 6мм
-                tmpmat = GetMaterialFromPricelist("Люверс 6мм", priceList);
+                tmpmat = GetMaterialFromPricelist("Люверс 6мм", priceList, "Name");
                 if (tmpmat != null)
                     for (int i = 0; i < 3; i++)
                         windowCalculating.Rows[windowCalculating.Rows.Count - 1][i] = tmpmat[0][i];
@@ -106,7 +107,7 @@ namespace WindowDoor
 
                 //    Работа;
                 //установка люверсов
-                tmpmat = GetMaterialFromPricelist("Установка люверса 6мм", priceList);
+                tmpmat = GetMaterialFromPricelist("Установка люверса 6мм", priceList, "Name");
                 if (tmpmat != null)
                     for (int i = 0; i < 3; i++)
                         windowCalculating.Rows[windowCalculating.Rows.Count - 1][i] = tmpmat[0][i];
@@ -120,7 +121,7 @@ namespace WindowDoor
             else if (window.OpenWindow)
             {
 
-                tmpmat = GetMaterialFromPricelist("Люверс 6мм", priceList);
+                tmpmat = GetMaterialFromPricelist("Люверс 6мм", priceList, "Name");
                 if (tmpmat != null)
                     for (int i = 0; i < 3; i++)
                         windowCalculating.Rows[windowCalculating.Rows.Count - 1][i] = tmpmat[0][i];
@@ -131,7 +132,7 @@ namespace WindowDoor
 
                 windowCalculating.Rows.Add();
 
-                tmpmat = GetMaterialFromPricelist("Люверсы 42*22", priceList);
+                tmpmat = GetMaterialFromPricelist("Люверсы 42*22", priceList, "Name");
                 if (tmpmat != null)
                     for (int i = 0; i < 3; i++)
                         windowCalculating.Rows[windowCalculating.Rows.Count - 1][i] = tmpmat[0][i];
@@ -143,7 +144,7 @@ namespace WindowDoor
                 windowCalculating.Rows.Add();
 
 
-                tmpmat = GetMaterialFromPricelist("Скоба поворотная", priceList);
+                tmpmat = GetMaterialFromPricelist("Скоба поворотная", priceList, "Name");
                 if (tmpmat != null)
                     for (int i = 0; i < 3; i++)
                         windowCalculating.Rows[windowCalculating.Rows.Count - 1][i] = tmpmat[0][i];
@@ -158,7 +159,7 @@ namespace WindowDoor
                 if (window.Pipe)
                 {
                     double pipeSize = Math.Ceiling(window.Width);
-                    tmpmat = GetMaterialFromPricelist("Труба профильная железо 15 х 15 х 1,5; Длина 6 м", priceList);
+                    tmpmat = GetMaterialFromPricelist("Труба профильная железо 15 х 15 х 1,5; Длина 6 м", priceList, "Name");
                     if (tmpmat != null)
                         for (int i = 0; i < 3; i++)
                             windowCalculating.Rows[windowCalculating.Rows.Count - 1][i] = tmpmat[0][i];
@@ -173,7 +174,7 @@ namespace WindowDoor
                 if (window.Flash)
                 {
                     double flashSize = Math.Ceiling(window.Height);
-                    tmpmat = GetMaterialFromPricelist("Молния трактор", priceList);
+                    tmpmat = GetMaterialFromPricelist("Молния трактор", priceList, "Name");
                     if (tmpmat != null)
                         for (int i = 0; i < 3; i++)
                             windowCalculating.Rows[windowCalculating.Rows.Count - 1][i] = tmpmat[0][i];
@@ -187,7 +188,7 @@ namespace WindowDoor
 
                 //    Работа;
                 //установка люверсов
-                tmpmat = GetMaterialFromPricelist("Установка люверса 6мм", priceList);
+                tmpmat = GetMaterialFromPricelist("Установка люверса 6мм", priceList, "Name");
                 if (tmpmat != null)
                     for (int i = 0; i < 3; i++)
                         windowCalculating.Rows[windowCalculating.Rows.Count - 1][i] = tmpmat[0][i];
@@ -197,7 +198,7 @@ namespace WindowDoor
 
                 windowCalculating.Rows.Add();
 
-                tmpmat = GetMaterialFromPricelist("Установка люверсов 42*22", priceList);
+                tmpmat = GetMaterialFromPricelist("Установка люверсов 42*22", priceList, "Name");
                 if (tmpmat != null)
                     for (int i = 0; i < 3; i++)
                         windowCalculating.Rows[windowCalculating.Rows.Count - 1][i] = tmpmat[0][i];
@@ -209,7 +210,7 @@ namespace WindowDoor
 
                 if (window.PaintPipe && window.Pipe)
                 {
-                    tmpmat = GetMaterialFromPricelist("Грунт трубы", priceList);
+                    tmpmat = GetMaterialFromPricelist("Грунт трубы", priceList, "Name");
                     if (tmpmat != null)
                         for (int i = 0; i < 3; i++)
                             windowCalculating.Rows[windowCalculating.Rows.Count - 1][i] = tmpmat[0][i];
@@ -220,7 +221,7 @@ namespace WindowDoor
                 }
                 if (window.Flash)
                 {
-                    tmpmat = GetMaterialFromPricelist("Пошив молнии", priceList);
+                    tmpmat = GetMaterialFromPricelist("Пошив молнии", priceList, "Name");
                     if (tmpmat != null)
                         for (int i = 0; i < 3; i++)
                             windowCalculating.Rows[windowCalculating.Rows.Count - 1][i] = tmpmat[0][i];
@@ -236,7 +237,7 @@ namespace WindowDoor
 
             else if (window.FullOpenWindow)
             {
-                tmpmat = GetMaterialFromPricelist("Люверсы 42*22", priceList);
+                tmpmat = GetMaterialFromPricelist("Люверсы 42*22", priceList, "Name");
                 if (tmpmat != null)
                     for (int i = 0; i < 3; i++)
                         windowCalculating.Rows[windowCalculating.Rows.Count - 1][i] = tmpmat[0][i];
@@ -247,7 +248,7 @@ namespace WindowDoor
 
                 windowCalculating.Rows.Add();
 
-                tmpmat = GetMaterialFromPricelist("Скоба поворотная", priceList);
+                tmpmat = GetMaterialFromPricelist("Скоба поворотная", priceList, "Name");
                 if (tmpmat != null)
                     for (int i = 0; i < 3; i++)
                         windowCalculating.Rows[windowCalculating.Rows.Count - 1][i] = tmpmat[0][i];
@@ -258,7 +259,7 @@ namespace WindowDoor
 
                 windowCalculating.Rows.Add();
 
-                tmpmat = GetMaterialFromPricelist("Установка люверсов 42*22", priceList);
+                tmpmat = GetMaterialFromPricelist("Установка люверсов 42*22", priceList, "Name");
                 if (tmpmat != null)
                     for (int i = 0; i < 3; i++)
                         windowCalculating.Rows[windowCalculating.Rows.Count - 1][i] = tmpmat[0][i];
@@ -294,10 +295,10 @@ namespace WindowDoor
             
             return windowCalculating;
         }
-
-        DataRow[] GetMaterialFromPricelist (string name, PriceList priceList)
+        
+        DataRow[] GetMaterialFromPricelist (string name, PriceList priceList, string type)
         {
-            DataRow [] dt = priceList.materials.Select("Name = '" + name + "'");
+            DataRow [] dt = priceList.materials.Select(type+" = '" + name + "'");
             DataRow[] dr = dt;
             return dt;
         }
