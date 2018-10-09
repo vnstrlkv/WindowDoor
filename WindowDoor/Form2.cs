@@ -27,7 +27,7 @@ namespace WindowDoor
         {
             InitializeComponent();
             client = person;
-            textBox1.Text = person.SecondName+" "+person.FirstName;
+            textBox1.Text = person.SecondName+" "+person.FirstName + " " +person.PhoneNumber;
             WinDoor window = person.Windows[person.Windows.Count-1];
 
             priceList.GetPrices();
@@ -242,7 +242,7 @@ namespace WindowDoor
                     for (int i = 0; i < 3; i++)
                         windowCalculating.Rows[windowCalculating.Rows.Count - 1][i] = tmpmat[0][i];
 
-                windowCalculating.Rows[windowCalculating.Rows.Count - 1][3] = Math.Ceiling((window.Perimeter()) / 0.4 * 2);
+                windowCalculating.Rows[windowCalculating.Rows.Count - 1][3] = Math.Ceiling((window.Perimeter()) / 0.4);
 
                 windowCalculating.Rows[windowCalculating.Rows.Count - 1][4] = Convert.ToDouble(windowCalculating.Rows[windowCalculating.Rows.Count - 1][3].ToString()) * Convert.ToDouble(windowCalculating.Rows[windowCalculating.Rows.Count - 1][2].ToString());
 
@@ -253,7 +253,7 @@ namespace WindowDoor
                     for (int i = 0; i < 3; i++)
                         windowCalculating.Rows[windowCalculating.Rows.Count - 1][i] = tmpmat[0][i];
 
-                windowCalculating.Rows[windowCalculating.Rows.Count - 1][3] = Math.Ceiling((window.Height) / 0.4 * 2);
+                windowCalculating.Rows[windowCalculating.Rows.Count - 1][3] = Math.Ceiling((window.Perimeter()) / 0.4);
 
                 windowCalculating.Rows[windowCalculating.Rows.Count - 1][4] = Convert.ToDouble(windowCalculating.Rows[windowCalculating.Rows.Count - 1][3].ToString()) * Convert.ToDouble(windowCalculating.Rows[windowCalculating.Rows.Count - 1][2].ToString());
 
@@ -327,9 +327,16 @@ namespace WindowDoor
                 ExcelWorksheet ws = pck.Workbook.Worksheets.Add(k.ToString());
                 ws.Cells["A1"].LoadFromText(client.Name());
                 ws.Cells["A2"].LoadFromText(client.PhoneNumber);
-                ws.Cells["A3"].LoadFromDataTable(windowCalculating, true);
-
-
+    
+                ws.Cells["A4"].LoadFromDataTable(windowCalculating, true);
+                int i = 5;
+                while (ws.Cells["A" + i.ToString()].Text != "Замер")
+                {
+                    ws.Cells["E" + i.ToString()].FormulaR1C1 = "=RC[-1]*RC[-2]";
+                    i++;
+                }
+                i = i + 3;
+                ws.Cells["E" + i.ToString()].FormulaR1C1 = "=SUM(R[-"+(i-5).ToString()+"]C:R[-1]C)";
                 ws.Cells.Style.Font.Size = 12; // Размер шрифта по умолчанию для всего листа
                 ws.Cells.Style.Font.Name = "Times New Roman"; // Default Имя шрифта для всего листа
 

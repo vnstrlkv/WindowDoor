@@ -7,6 +7,8 @@ using WinDoors;
 using SQLite;
 namespace Personal
 {
+
+   
    public class Person
     {
         [PrimaryKey, AutoIncrement, Unique]

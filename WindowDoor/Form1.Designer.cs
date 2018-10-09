@@ -99,11 +99,13 @@
             // 
             // nameBox1
             // 
+            this.nameBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.nameBox1.Location = new System.Drawing.Point(121, 14);
             this.nameBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nameBox1.Name = "nameBox1";
             this.nameBox1.Size = new System.Drawing.Size(313, 22);
             this.nameBox1.TabIndex = 3;
+            this.nameBox1.Text = "1";
             this.nameBox1.TextChanged += new System.EventHandler(this.nameBox1_TextChanged);
             // 
             // textBox2
@@ -168,7 +170,6 @@
             this.MaterialBox1.Name = "MaterialBox1";
             this.MaterialBox1.Size = new System.Drawing.Size(780, 24);
             this.MaterialBox1.TabIndex = 10;
-            
             // 
             // materialBindingSource
             // 

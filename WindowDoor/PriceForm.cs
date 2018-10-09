@@ -10,8 +10,8 @@ using System.Windows.Forms;
 using Prices;
 using OfficeOpenXml;
 using System.IO;
-using System.Data;
 using OfficeOpenXml.Style;
+using System.Windows;
 
 namespace WindowDoor
 {
@@ -20,7 +20,7 @@ namespace WindowDoor
         public PriceForm()
         {
             InitializeComponent();
-
+            
         }
  
     }
