@@ -81,8 +81,9 @@ namespace WindowDoor
                 person = new Person();
                 person.FirstName = nameBox1.Text;
                 person.SecondName = nameBox2.Text;
-                person.PhoneNumber = phoneNumber.Text + " размер "+ windows.Height.ToString() + " x " + windows.Width.ToString();
+               // person.PhoneNumber = phoneNumber.Text + " размер "+ windows.Height.ToString() + " x " + windows.Width.ToString();
             }
+            person.PhoneNumber = phoneNumber.Text + " размер " + windows.Width.ToString() + " x " + windows.Height.ToString();
             windows.Deaf = checkDeaf.Checked;
             windows.OpenWindow = openWindow.Checked;
             windows.Pipe = checkPipe1.Checked;

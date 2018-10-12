@@ -322,11 +322,12 @@ namespace WindowDoor
             FileInfo newFile = new FileInfo(DateTime.Today.ToString("dd.MM.yyyy")+"\\"+client.Name()+".xlsx");
             using (ExcelPackage pck = new ExcelPackage(newFile))
             {
-
-                int k =pck.Workbook.Worksheets.Count;
+                var format = new ExcelTextFormat();
+                format.Delimiter = '/';
+                int k =pck.Workbook.Worksheets.Count+1;
                 ExcelWorksheet ws = pck.Workbook.Worksheets.Add(k.ToString());
                 ws.Cells["A1"].LoadFromText(client.Name());
-                ws.Cells["A2"].LoadFromText(client.PhoneNumber);
+                ws.Cells["A2"].LoadFromText(client.PhoneNumber, format);
     
                 ws.Cells["A4"].LoadFromDataTable(windowCalculating, true);
                 int i = 5;
@@ -336,7 +337,7 @@ namespace WindowDoor
                     i++;
                 }
                 i = i + 3;
-                ws.Cells["E" + i.ToString()].FormulaR1C1 = "=SUM(R[-"+(i-5).ToString()+"]C:R[-1]C)";
+                ws.Cells["E" + i.ToString()].FormulaR1C1 = "=SUM(R[-" + (i-5).ToString()+"]C:R[-1]C)";
                 ws.Cells.Style.Font.Size = 12; // Размер шрифта по умолчанию для всего листа
                 ws.Cells.Style.Font.Name = "Times New Roman"; // Default Имя шрифта для всего листа
 
