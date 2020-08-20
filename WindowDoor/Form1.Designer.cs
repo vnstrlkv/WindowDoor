@@ -39,7 +39,6 @@
             this.checkDeaf = new System.Windows.Forms.CheckBox();
             this.checkPipe1 = new System.Windows.Forms.CheckBox();
             this.MaterialBox1 = new System.Windows.Forms.ComboBox();
-            this.materialBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cuttingbox = new System.Windows.Forms.CheckBox();
             this.paintPipe = new System.Windows.Forms.CheckBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -59,9 +58,15 @@
             this.BDbutton = new System.Windows.Forms.Button();
             this.flash1 = new System.Windows.Forms.CheckBox();
             this.PriceButton = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.materialBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.priceListBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.priceListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.priceListBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.CountText = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.materialBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceListBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceListBindingSource)).BeginInit();
@@ -170,10 +175,7 @@
             this.MaterialBox1.Name = "MaterialBox1";
             this.MaterialBox1.Size = new System.Drawing.Size(780, 24);
             this.MaterialBox1.TabIndex = 10;
-            // 
-            // materialBindingSource
-            // 
-            this.materialBindingSource.DataSource = typeof(Prices.Material);
+            this.MaterialBox1.SelectedIndexChanged += new System.EventHandler(this.MaterialBox1_SelectedIndexChanged);
             // 
             // cuttingbox
             // 
@@ -371,6 +373,39 @@
             this.PriceButton.UseVisualStyleBackColor = true;
             this.PriceButton.Click += new System.EventHandler(this.PriceButton_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(560, 218);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.TabIndex = 20;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(571, 190);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(100, 22);
+            this.textBox5.TabIndex = 21;
+            this.textBox5.Text = "Размер материала";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(302, 477);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(204, 69);
+            this.button2.TabIndex = 22;
+            this.button2.Text = "Открыть папку";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // materialBindingSource
+            // 
+            this.materialBindingSource.DataSource = typeof(Prices.Material);
+            // 
             // priceListBindingSource1
             // 
             this.priceListBindingSource1.DataSource = typeof(Prices.PriceList);
@@ -383,11 +418,32 @@
             // 
             this.priceListBindingSource2.DataSource = typeof(Prices.PriceList);
             // 
+            // CountText
+            // 
+            this.CountText.Location = new System.Drawing.Point(571, 270);
+            this.CountText.Name = "CountText";
+            this.CountText.Size = new System.Drawing.Size(100, 22);
+            this.CountText.TabIndex = 23;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(571, 248);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.ReadOnly = true;
+            this.textBox11.Size = new System.Drawing.Size(100, 22);
+            this.textBox11.TabIndex = 24;
+            this.textBox11.Text = "Количество";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(815, 644);
+            this.Controls.Add(this.textBox11);
+            this.Controls.Add(this.CountText);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.PriceButton);
             this.Controls.Add(this.flash1);
             this.Controls.Add(this.BDbutton);
@@ -464,6 +520,11 @@
         private System.Windows.Forms.Button PriceButton;
         private System.Windows.Forms.BindingSource materialBindingSource;
         private System.Windows.Forms.BindingSource priceListBindingSource2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox CountText;
+        private System.Windows.Forms.TextBox textBox11;
     }
 }
 

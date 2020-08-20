@@ -14,6 +14,27 @@ namespace WinDoors
         public double Delivery { get; set; }
         public double Metering { get; set; }
         public double InstallWindow { get; set; }
+        public int Count { get; set; }
+        private double sizeMaterial;
+        private double size;
+        public double Size { get => size; }
+        public double SizeMaterial
+        {
+            get { return sizeMaterial; }
+            set
+            {
+                if (value == 1.4)
+                {
+                    sizeMaterial = value;
+                    size = 1.5;
+                }
+                else if (value == 2)
+                {
+                    size = 2.2;
+                    sizeMaterial = 2;
+                };
+            }
+        }
 
         public bool Deaf { get; set; }
 

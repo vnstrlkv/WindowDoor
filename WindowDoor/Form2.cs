@@ -38,11 +38,12 @@ namespace WindowDoor
             windowCalculating.Columns.Add("Цена", typeof(double));//2
            
             windowCalculating.Columns.Add("S", typeof(double));//3
-            windowCalculating.Columns.Add("Стоимость СК", typeof(double));//4
+            windowCalculating.Columns.Add("Стоимость за единицу", typeof(double));//4
+            windowCalculating.Columns.Add("Количество", typeof(double));//5
+            windowCalculating.Columns.Add("Всего", typeof(double));//6
 
-            
-    
-             windowCalculating = Calculate(windowCalculating, window);
+
+            windowCalculating = Calculate(windowCalculating, window);
             person.Windows[person.Windows.Count - 1].Summ = Convert.ToDouble(windowCalculating.Rows[windowCalculating.Rows.Count - 1][4].ToString());
 
             try
@@ -64,8 +65,8 @@ namespace WindowDoor
         DataTable Calculate(DataTable windowCalculating, WinDoor window)
         {
             double BK = 1.13;
-            double size = 1.5;
-            double sizeMaterial = 1.4;
+            double size = window.Size;
+            double sizeMaterial = window.SizeMaterial;
             windowCalculating.Rows.Add();
             //Добавляем материал
             DataRow[] tmpmat = GetMaterialFromPricelist(window.Material, priceList, "Name");
@@ -285,14 +286,20 @@ namespace WindowDoor
             //ИТОГО
             windowCalculating.Rows[windowCalculating.Rows.Count - 1][0] = "ИТОГО";
             double summ=0;
+            double summ2 = 0;
             foreach (DataRow dr in windowCalculating.Rows)
             {
                 double k;
                 if (Double.TryParse(dr[4].ToString(), out k))
-                summ +=Convert.ToDouble(dr[4]);
+                {
+                    summ += Convert.ToDouble(dr[4]);
+                    dr[5] = window.Count;
+                    dr[6] = double.Parse(dr[5].ToString()) * double.Parse(dr[4].ToString());
+                    summ2 += Convert.ToDouble(dr[6]); 
+                }
             }
             windowCalculating.Rows[windowCalculating.Rows.Count - 1][4] = Math.Ceiling(summ);
-            
+            windowCalculating.Rows[windowCalculating.Rows.Count - 1][6] = Math.Ceiling(summ2);
             return windowCalculating;
         }
         
