@@ -331,13 +331,38 @@ namespace WindowDoor
             {
                 var format = new ExcelTextFormat();
                 format.Delimiter = '/';
-                int k =pck.Workbook.Worksheets.Count+1;
-                ExcelWorksheet ws = pck.Workbook.Worksheets.Add(k.ToString());
+                int k =pck.Workbook.Worksheets.Count;
+                ExcelWorksheet ws = null;
+                if (k==0)
+                {
+                    k++;
+                    ws = pck.Workbook.Worksheets.Add(k.ToString());
+                }
+                else
+                {
+                    ws = pck.Workbook.Worksheets[1];
+                }
+              
+                
                 ws.Cells["A1"].LoadFromText(client.Name());
                 ws.Cells["A2"].LoadFromText(client.PhoneNumber, format);
-    
-                ws.Cells["A4"].LoadFromDataTable(windowCalculating, true);
+
+                string freecell = null;
                 int i = 5;
+                for (int n =5 ; i < 1000; n++)
+                {
+                   
+                    if (ws.Cells["A" + n].Text.ToString()== "")
+                    {
+                       i=n;
+                        freecell = "A" + i;
+                        break;
+                    }
+
+                }
+
+                ws.Cells[freecell].LoadFromDataTable(windowCalculating, true);
+                //int u = 5;
                 while (ws.Cells["A" + i.ToString()].Text != "Замер")
                 {
                     ws.Cells["E" + i.ToString()].FormulaR1C1 = "=RC[-1]*RC[-2]";
